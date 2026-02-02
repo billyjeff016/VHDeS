@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VHDeS</title>
+</head>
+<body>
+    <form id="minForm">
+        <label for="username">Skriv ditt anvandärnamn:</label>
+        <input type="text" id="username" name="username">
+        <br>
+        <label for="password">Lösenord:</label>
+        <input type="password" id="password" name="password">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        let username = null;
+        const form = document.getElementById('minForm')
+        
+        form.addEventListener('submit', function (event){
+        event.preventDefault();
+
+         const text = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            console.log(text + password);
+            if(text == "daris" && password == "daris"){
+                username = text;
+                window.location.href='H:\/webb utveckling/VHDeS/VHDeSMain.html';
+                }else{
+                alert("Fel användarnamn eller lösenord!");
+                }
+                
+            
+    });
+    </script>
+</body>
+</html>
