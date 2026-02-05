@@ -1,0 +1,16 @@
+body{
+background-image:url( "https://maps-stockholm.com/img/0/stockholm-city-map.jpg");
+}
+.box{
+    border: white;
+    box-sizing: border-box;
+    background-color: white;
+    border-color: black;
+    border: 0px;
+    box-shadow: 0px;
+    width: 250px;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
