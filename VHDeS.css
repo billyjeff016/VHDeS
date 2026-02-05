@@ -1,16 +1,55 @@
-body{
+.BodyLogIn{
 background-image:url( "https://maps-stockholm.com/img/0/stockholm-city-map.jpg");
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: center;
 }
 .box{
-    border: white;
     box-sizing: border-box;
     background-color: white;
     border-color: black;
-    border: 0px;
-    box-shadow: 0px;
+     border: 2px solid #000;
+    box-shadow: 5px;
     width: 250px;
     height: 150px;
     justify-content: center;
     align-items: center;
     display: flex;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between; /* Pushes H1 to the left and Nav to the right */
+  align-items: center;          /* Vertically centers them */
+background-color: #1f2937;
+}
+nav ul li a{
+    text-decoration: none;
+    color:#f9faf8;
+}
+.Intro{
+color: #f9faf8;
+background-color: #1f2937;
+margin-bottom: 50px;
+padding-bottom: 50px;
+}
+nav ul{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 450px;
+    margin: 20px;
+}
+.PlaceHolder{
+    display: flex;
+    justify-content:right;
+    align-items:center;
+margin: 10px;
+margin-right: 300px;
+}
+h1{
+    margin: 20px;
 }
