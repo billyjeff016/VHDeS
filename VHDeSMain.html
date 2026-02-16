@@ -22,12 +22,9 @@
     <section class="Hero">
         <h1 id="welcome">Välkommen</h1>
         <p class="inledning">Vår webbplats gör det enkelt att hyra elsparkcyklar snabbt och smidigt. Du hittar, låser upp och betalar direkt i mobilen, så att du kan ta dig runt på ett hållbart och flexibelt sätt – när det passar dig.</p>
-    <div class="PlaceHolder">
-       <img src="" alt="">
-       <img src="" alt="">
-       <img src="" alt="">
-    </div>
-
+       <button id="rentBtn" type="button">Hyr sparkcykel</button>
+    <p id="rentStatus" aria-live="polite"></p>
+    <p id="timer"></p>
 </section>
 </section>
    <script>
@@ -38,6 +35,46 @@
         if(username){
             text.textContent = `Välkommen ${username}!`;
         } 
+        let tid = 60;
+    const timer = document.getElementById('timer');
+    const rentBtn = document.getElementById('rentBtn');
+    const rentStatus = document.getElementById('rentStatus');
+    let timerId = null;
+    let rented = false;
+    timer.textContent = `Tid kvar: ${tid} minuter`;
+    rentBtn.addEventListener('click', function (event){
+        if(!rented){
+            rented = true;
+            rentStatus.style.color = "green";
+            rentStatus.textContent = "Du har hyrt en sparkcykel!";
+            timerId = setInterval(function() {
+                if (tid > 0) {
+                    tid--;
+                    timer.textContent = `Tid kvar: ${tid} minuter`;
+                } 
+                if(tid===0){
+                    clearInterval(timerId);   
+                    
+                    timerId= null;
+                    rented = false;
+                    rentStatus.textContent = "Din hyra har löpt ut!";
+                rentStatus.style.color = "red";
+                tid=60;
+                timer.textContent = `Tid kvar: ${tid} minuter`;
+                }
+
+                else {
+                   rented = false;
+                   rentStatus.textContent = "Du har lämnat tillbaka sparkcykeln!";
+                   rentStatus.style.color = "red";
+                   if(timerId){
+                    clearInterval(timerId);
+                    timerId = null;
+                   }
+                   timer.textContent = `Tid kvar: ${tid} minuter`;
+                }
+            }, 1000);
+        }});
    </script>
 
 </body>
