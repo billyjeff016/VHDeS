@@ -31,7 +31,11 @@
             if(text == "daris" && password == "daris"){
                 username = text;
                 window.location.href=`VHDeSMain.html?username=${encodeURIComponent(username)}`;
-                }else{
+                } if(text == "denis" && password =="denis"){
+                username = text;
+                window.location.href=`VHDeSMain.html?username=${encodeURIComponent(username)}`;
+                }
+                else{
                 alert("Fel användarnamn eller lösenord!");
                 }
                 
