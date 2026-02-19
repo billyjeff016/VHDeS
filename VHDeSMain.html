@@ -31,6 +31,7 @@
         //Tar ut URL:en så vi kan hämta 
         const params = new URLSearchParams(window.location.search);
         const text = document.getElementById("welcome");
+        const date = new Date().toLocaleDateString();
         let username = params.get('username');
         if(username){
             text.textContent = `Välkommen ${username}!`;
@@ -57,13 +58,16 @@
                     
                     timerId= null;
                     rented = false;
-                    rentStatus.textContent = "Din hyra har löpt ut!";
+                    rentStatus.textContent = `Din hyra har löpt ut! Du hyrde en elsparkcykel ${date}`;
                 rentStatus.style.color = "red";
                 tid=60;
                 timer.textContent = `Tid kvar: ${tid} minuter`;
                 }
 
-                else {
+
+            }, 6);
+        }
+        else {
                    rented = false;
                    rentStatus.textContent = "Du har lämnat tillbaka sparkcykeln!";
                    rentStatus.style.color = "red";
@@ -73,8 +77,8 @@
                    }
                    timer.textContent = `Tid kvar: ${tid} minuter`;
                 }
-            }, 1000);
-        }});
+    
+    });
    </script>
 
 </body>
